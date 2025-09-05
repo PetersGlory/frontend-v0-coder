@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BookOpen, Search, Filter, Star, Download, Eye, Code, Database, Zap } from 'lucide-react'
+import { BookOpen, Search, Star, Download, Eye, Code, Database, Zap } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 
 interface Template {

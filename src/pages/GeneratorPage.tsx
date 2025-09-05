@@ -3,8 +3,8 @@ import { useBackendSpec } from '../contexts/BackendSpecContext'
 import PromptInput from '../components/PromptInput'
 import SpecDisplay from '../components/SpecDisplay'
 import ScaffoldButton from '../components/ScaffoldButton'
-import { Loader2, CheckCircle, AlertCircle, Sparkles, Clock, FolderOpen, MessageSquare, Settings, Zap, History, BookOpen, Code } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import { Loader2, CheckCircle, AlertCircle, Sparkles} from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 import AppLayout from '../components/AppLayout'
 
 export default function GeneratorPage() {
@@ -16,6 +16,8 @@ export default function GeneratorPage() {
     localPath?: string
   } | null>(null)
   const location = useLocation()
+
+  console.log(location)
 
   const examplePrompts = [
     "Build a REST API for a task management app with user authentication, projects, and tasks. Use Express, Prisma, and PostgreSQL.",

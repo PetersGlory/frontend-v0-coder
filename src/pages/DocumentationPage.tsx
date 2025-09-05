@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BookOpen, Search, ChevronRight, ExternalLink, Code, Database, Shield, Rocket, FileText, Video, Book, HelpCircle } from 'lucide-react'
+import { BookOpen, Search, ChevronRight, ExternalLink, Code, Shield, Rocket, FileText, Video, Book, HelpCircle } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 
 interface DocSection {

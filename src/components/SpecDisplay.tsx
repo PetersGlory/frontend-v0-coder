@@ -50,6 +50,7 @@ export default function SpecDisplay({ spec }: SpecDisplayProps) {
   ) => {
     const isExpanded = expandedSections.has(key)
     const Icon = icon
+    console.log(defaultExpanded)
 
     return (
       <div key={key} className="border-b border-gray-100 last:border-b-0">

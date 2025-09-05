@@ -60,6 +60,9 @@ export default function ScaffoldButton({
         document.body.removeChild(link)
         window.URL.revokeObjectURL(url)
         
+        setDownloadUrl(url)
+        
+        
         onScaffoldComplete({
           success: true,
           message: 'Project downloaded successfully!',
