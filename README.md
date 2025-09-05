@@ -1,6 +1,6 @@
-# Backend V0 Frontend
+# EaseArch Frontend
 
-A modern React-based web UI for the Backend V0 MVP - an AI-powered backend generator.
+A modern React-based web UI for the EaseArch MVP - an AI-powered backend generator.
 
 ## Features
 
@@ -24,7 +24,7 @@ A modern React-based web UI for the Backend V0 MVP - an AI-powered backend gener
 ### Prerequisites
 
 - Node.js 18+ and npm
-- Backend V0 API running on port 4000
+- EaseArch API running on port 4000
 
 ### Installation
 
@@ -79,7 +79,7 @@ frontend/
 
 ## API Integration
 
-The frontend communicates with the Backend V0 API through the following endpoints:
+The frontend communicates with the EaseArch API through the following endpoints:
 
 - `POST /api/spec` - Generate backend specification from prompt
 - `POST /api/scaffold` - Generate project files from specification

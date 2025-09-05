@@ -12,8 +12,8 @@ export default function Footer() {
                 <span className="text-white font-bold text-lg">B</span>
               </div>
               <div>
-                <h3 className="text-lg font-display font-bold text-gradient">Backend V0</h3>
-                <p className="text-sm text-neutral-600">AI-Powered Generator</p>
+                <h3 className="text-lg font-display font-bold text-gradient">EaseArch</h3>
+                <p className="text-sm text-neutral-600">Easy Architecture, Powerful Results</p>
               </div>
             </div>
             <p className="text-neutral-600 text-sm leading-relaxed max-w-md">
@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="border-t border-neutral-200/50 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-neutral-600 text-sm">
-            © 2025 Backend V0. Built with AI for developers.
+            © 2025 EaseArch. Built with AI for developers.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-neutral-600 hover:text-primary-600 text-sm transition-colors duration-200">Privacy</a>

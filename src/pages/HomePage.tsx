@@ -41,7 +41,7 @@ export default function HomePage() {
 
   const testimonials = [
     {
-      quote: "Backend V0 saved me hours of setup time. The generated code is production-ready and follows best practices.",
+      quote: "EaseArch saved me hours of setup time. The generated code is production-ready and follows best practices.",
       author: "Sarah Chen",
       role: "Full-Stack Developer",
       company: "TechCorp"
@@ -125,7 +125,7 @@ export default function HomePage() {
               Everything You Need to Build
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              From simple APIs to complex microservices, Backend V0 generates production-ready code with modern best practices.
+              From simple APIs to complex microservices, EaseArch generates production-ready code with modern best practices.
             </p>
           </div>
 
@@ -204,7 +204,7 @@ export default function HomePage() {
               Loved by Developers
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              See what developers are saying about Backend V0
+              See what developers are saying about EaseArch
             </p>
           </div>
 

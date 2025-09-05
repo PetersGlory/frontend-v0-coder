@@ -28,7 +28,7 @@ export default function DocumentationPage() {
     {
       id: 'getting-started',
       title: 'Getting Started',
-      description: 'Learn the basics of Backend V0',
+      description: 'Learn the basics of EaseArch',
       icon: BookOpen,
       articles: [
         {
@@ -177,7 +177,7 @@ export default function DocumentationPage() {
   return (
     <AppLayout
       title="Documentation"
-      subtitle="Learn how to use Backend V0 and build production-ready backends"
+      subtitle="Learn how to use EaseArch and build production-ready backends"
     >
       {/* Search */}
       <div className="card mb-8">

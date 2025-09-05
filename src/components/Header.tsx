@@ -26,9 +26,9 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-display font-bold text-gradient">
-                Backend V0
+                EaseArch
               </span>
-              <span className="text-xs text-neutral-500 -mt-1">AI-Powered Generator</span>
+              <span className="text-xs text-neutral-500 -mt-1">Easy Architecture, Powerful Results</span>
             </div>
           </Link>
 

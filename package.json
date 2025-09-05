@@ -1,7 +1,7 @@
 {
-  "name": "backend-v0-frontend",
+  "name": "easearch-frontend",
   "version": "1.0.0",
-  "description": "Frontend for Backend V0 MVP - AI-powered backend generator",
+  "description": "EaseArch - Easy Architecture, Powerful Results",
   "private": true,
   "type": "module",
   "scripts": {

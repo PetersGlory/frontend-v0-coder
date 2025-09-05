@@ -28,7 +28,7 @@ export default function GeneratorPage() {
 
   return (
     <AppLayout
-      title="Welcome back to Backend V0"
+      title="Welcome back to EaseArch"
       subtitle="Ready to generate your next backend?"
     >
       <div className="space-y-8">
