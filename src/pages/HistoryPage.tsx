@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clock, Search, Download, Eye, Trash2, Calendar, Code, Database } from 'lucide-react'
+import { Clock, Search, Download, Eye, Trash2, Calendar, Database } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 
 interface HistoryItem {
