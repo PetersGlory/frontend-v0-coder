@@ -11,12 +11,12 @@ import { BackendSpecProvider } from './contexts/BackendSpecContext'
 
 function App() {
   const location = useLocation()
-  const isGeneratorPage = location.pathname === '/'
+  const isHomePage = location.pathname === '/'
 
   return (
     <BackendSpecProvider>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
-        {isGeneratorPage && <Header />}
+      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30 flex flex-col">
+        {isHomePage && <Header />}
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -27,7 +27,7 @@ function App() {
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
-        {isGeneratorPage && <Footer />}
+        {isHomePage && <Footer />}
       </div>
     </BackendSpecProvider>
   )

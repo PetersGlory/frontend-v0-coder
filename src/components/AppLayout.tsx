@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Sparkles, Clock, History, BookOpen, Code, Settings, Zap, MessageSquare } from 'lucide-react'
+import { Sparkles, Clock, History, BookOpen, Code, Settings, Zap, MessageSquare, User, ChevronRight } from 'lucide-react'
 
 interface AppLayoutProps {
   children: ReactNode
@@ -27,25 +27,25 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30 flex">
       {/* Left Sidebar - Controls & Navigation */}
-      <div className="w-64 bg-white border-r border-gray-200 flex flex-col shadow-sm">
+      <div className="w-72 bg-white/80 backdrop-blur-sm border-r border-neutral-200/50 flex flex-col shadow-soft">
         {/* Header Section */}
-        <div className="p-4 border-b border-gray-100 bg-gradient-to-br from-purple-50 to-pink-50">
-          <div className="flex items-center space-x-2 mb-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center shadow-md">
-              <Sparkles className="w-4 h-4 text-white" />
+        <div className="p-6 border-b border-neutral-200/50 bg-gradient-to-br from-primary-50/50 to-secondary-50/50">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-glow">
+              <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-gray-900">Backend V0</h2>
-              <p className="text-xs text-gray-600">AI-powered generator</p>
+              <h2 className="text-lg font-display font-bold text-gradient">Backend V0</h2>
+              <p className="text-xs text-neutral-600">AI-powered generator</p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Icons */}
-        <div className="p-3 border-b border-gray-100">
-          <div className="flex flex-col space-y-2">
+        {/* Navigation */}
+        <div className="p-4 border-b border-neutral-200/50">
+          <div className="space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = location.pathname === item.path
@@ -54,14 +54,15 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
+                  className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
                     isActive
-                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md'
-                      : 'text-gray-400 hover:text-purple-600 hover:bg-purple-50'
+                      ? 'bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 border border-primary-200 shadow-soft'
+                      : 'text-neutral-600 hover:text-primary-700 hover:bg-primary-50/50'
                   }`}
-                  title={item.label}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-5 h-5" />
+                  <span>{item.label}</span>
+                  {isActive && <ChevronRight className="w-4 h-4 ml-auto" />}
                 </Link>
               )
             })}
@@ -69,23 +70,22 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
         </div>
 
         {/* Example Prompts Section */}
-        <div className="flex-1 p-3 overflow-y-auto">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center space-x-2">
-            <Zap className="w-3 h-3" />
-            <span>Examples</span>
+        <div className="flex-1 p-4 overflow-y-auto">
+          <h3 className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-4 flex items-center space-x-2">
+            <Zap className="w-4 h-4" />
+            <span>Quick Examples</span>
           </h3>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {examplePrompts.map((prompt, index) => (
               <button
                 key={index}
                 onClick={() => {
-                  // Navigate to generate page with the prompt
                   window.location.href = `/generate?prompt=${encodeURIComponent(prompt)}`
                 }}
-                className="w-full text-left p-3 text-xs text-gray-600 hover:text-gray-900 hover:bg-purple-50 rounded-lg border border-gray-200 hover:border-purple-300 transition-all duration-200 bg-white hover:shadow-sm group"
+                className="w-full text-left p-4 text-sm text-neutral-700 hover:text-neutral-900 hover:bg-gradient-to-r hover:from-primary-50 hover:to-secondary-50 rounded-xl border border-neutral-200 hover:border-primary-300 transition-all duration-200 bg-white/50 hover:shadow-soft group"
               >
-                <div className="flex items-start space-x-2">
-                  <Clock className="w-3 h-3 text-purple-400 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                <div className="flex items-start space-x-3">
+                  <Clock className="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                   <span className="line-clamp-3 leading-relaxed">{prompt}</span>
                 </div>
               </button>
@@ -94,45 +94,45 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
         </div>
 
         {/* User Profile */}
-        <div className="p-3 border-t border-gray-100 bg-gray-50">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-sm">
-              <span className="text-white text-xs font-medium">U</span>
+        <div className="p-4 border-t border-neutral-200/50 bg-gradient-to-r from-neutral-50/50 to-primary-50/30">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-soft">
+              <User className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-xs font-medium text-gray-900">User</p>
-              <p className="text-xs text-gray-500">Developer</p>
+              <p className="text-sm font-medium text-neutral-900">Developer</p>
+              <p className="text-xs text-neutral-500">Ready to build</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 bg-white flex flex-col">
+      <div className="flex-1 bg-white/60 backdrop-blur-sm flex flex-col">
         {/* Top Header */}
-        <div className="p-6 border-b border-gray-100 bg-white shadow-sm">
+        <div className="p-8 border-b border-neutral-200/50 bg-white/80 backdrop-blur-md shadow-soft">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-md">
-                <span className="text-white text-lg font-medium">U</span>
+              <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center shadow-glow">
+                <span className="text-white text-xl font-bold">U</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">{title}</h1>
-                <p className="text-gray-600 text-sm">{subtitle}</p>
+                <h1 className="text-2xl font-display font-bold text-neutral-900">{title}</h1>
+                <p className="text-neutral-600">{subtitle}</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <button className="px-4 py-2 bg-purple-100 text-purple-700 rounded-xl font-medium flex items-center space-x-2 hover:bg-purple-200 transition-colors duration-200 shadow-sm">
-                <Sparkles className="w-4 h-4" />
-                <span>AI Model</span>
+              <button className="btn-secondary btn-sm">
+                <Sparkles className="w-4 h-4 mr-2" />
+                AI Model
               </button>
             </div>
           </div>
         </div>
 
         {/* Page Content */}
-        <div className="flex-1 p-6 overflow-y-auto bg-gray-50">
-          <div className="max-w-4xl mx-auto">
+        <div className="flex-1 p-8 overflow-y-auto">
+          <div className="max-w-5xl mx-auto">
             {children}
           </div>
         </div>

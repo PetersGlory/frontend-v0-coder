@@ -89,7 +89,7 @@ export default function ScaffoldButton({
         <button
           onClick={handleScaffold}
           disabled={isScaffolding}
-          className="group relative inline-flex items-center justify-center space-x-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+          className="btn-primary btn-lg group"
         >
           {isScaffolding ? (
             <>
@@ -107,45 +107,47 @@ export default function ScaffoldButton({
       </div>
 
       {/* What You'll Get */}
-      <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-6 border border-gray-200">
-        <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
-          <CheckCircle className="w-5 h-5 text-green-600" />
+      <div className="card-gradient border-primary-200">
+        <h4 className="text-lg font-display font-semibold text-neutral-900 mb-6 flex items-center space-x-3">
+          <div className="w-8 h-8 bg-green-100 rounded-xl flex items-center justify-center">
+            <CheckCircle className="w-5 h-5 text-green-600" />
+          </div>
           <span>What You'll Get</span>
         </h4>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="space-y-3">
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Complete project structure</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Package configuration</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Database schema & migrations</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>API routes & controllers</span>
             </div>
           </div>
-          <div className="space-y-3">
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Authentication middleware</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Docker configuration</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>CI/CD pipeline setup</span>
             </div>
-            <div className="flex items-center space-x-3 text-sm text-gray-700">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <div className="flex items-center space-x-3 text-sm text-neutral-700">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span>Environment configuration</span>
             </div>
           </div>
@@ -153,30 +155,32 @@ export default function ScaffoldButton({
       </div>
 
       {/* Next Steps */}
-      <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-200">
-        <h4 className="text-lg font-semibold text-blue-900 mb-4 flex items-center space-x-2">
-          <ArrowRight className="w-5 h-5 text-blue-600" />
+      <div className="card-gradient border-primary-200 bg-gradient-to-r from-primary-50/50 to-secondary-50/50">
+        <h4 className="text-lg font-display font-semibold text-neutral-900 mb-6 flex items-center space-x-3">
+          <div className="w-8 h-8 bg-primary-100 rounded-xl flex items-center justify-center">
+            <ArrowRight className="w-5 h-5 text-primary-600" />
+          </div>
           <span>Next Steps After Scaffolding</span>
         </h4>
-        <div className="space-y-3">
-          <div className="flex items-start space-x-3 text-sm text-blue-800">
-            <span className="w-6 h-6 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+        <div className="space-y-4">
+          <div className="flex items-start space-x-4 text-sm text-neutral-700">
+            <span className="w-7 h-7 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
             <span>Navigate to the generated project directory</span>
           </div>
-          <div className="flex items-start space-x-3 text-sm text-blue-800">
-            <span className="w-6 h-6 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-            <span>Install dependencies with <code className="bg-blue-200 px-2 py-1 rounded text-blue-800 font-mono">npm install</code> or <code className="bg-blue-200 px-2 py-1 rounded text-blue-800 font-mono">pip install -r requirements.txt</code></span>
+          <div className="flex items-start space-x-4 text-sm text-neutral-700">
+            <span className="w-7 h-7 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+            <span>Install dependencies with <code className="bg-primary-100 px-2 py-1 rounded text-primary-800 font-mono text-xs">npm install</code> or <code className="bg-primary-100 px-2 py-1 rounded text-primary-800 font-mono text-xs">pip install -r requirements.txt</code></span>
           </div>
-          <div className="flex items-start space-x-3 text-sm text-blue-800">
-            <span className="w-6 h-6 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+          <div className="flex items-start space-x-4 text-sm text-neutral-700">
+            <span className="w-7 h-7 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
             <span>Set up your database and environment variables</span>
           </div>
-          <div className="flex items-start space-x-3 text-sm text-blue-800">
-            <span className="w-6 h-6 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+          <div className="flex items-start space-x-4 text-sm text-neutral-700">
+            <span className="w-7 h-7 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
             <span>Run the development server</span>
           </div>
-          <div className="flex items-start space-x-3 text-sm text-blue-800">
-            <span className="w-6 h-6 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+          <div className="flex items-start space-x-4 text-sm text-neutral-700">
+            <span className="w-7 h-7 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
             <span>Customize and extend as needed</span>
           </div>
         </div>
@@ -188,7 +192,7 @@ export default function ScaffoldButton({
           <a
             href={downloadUrl}
             download={`${getProjectName()}.zip`}
-            className="inline-flex items-center space-x-3 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 font-medium rounded-xl border border-gray-300 hover:border-gray-400 transition-all duration-300 hover:shadow-md"
+            className="btn-secondary"
           >
             <Download className="w-5 h-5" />
             <span>Download ZIP</span>

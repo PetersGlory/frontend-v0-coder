@@ -104,23 +104,23 @@ export default function TemplatesPage() {
       subtitle="Browse and use pre-built backend templates to jumpstart your development"
     >
       {/* Search and Filters */}
-      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-6">
+      <div className="card mb-8">
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-neutral-400" />
             <input
               type="text"
               placeholder="Search templates..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="input pl-10"
             />
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="select"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -131,7 +131,7 @@ export default function TemplatesPage() {
             <select
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="select"
             >
               {difficulties.map(difficulty => (
                 <option key={difficulty} value={difficulty}>
@@ -146,49 +146,53 @@ export default function TemplatesPage() {
       {/* Templates Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredTemplates.length === 0 ? (
-          <div className="col-span-full bg-white rounded-2xl p-12 border border-gray-200 shadow-sm text-center">
-            <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No templates found</h3>
-            <p className="text-gray-600">Try adjusting your search or filters</p>
+          <div className="col-span-full card text-center">
+            <div className="w-20 h-20 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
+              <BookOpen className="w-10 h-10 text-neutral-400" />
+            </div>
+            <h3 className="text-xl font-display font-semibold text-neutral-900 mb-2">No templates found</h3>
+            <p className="text-neutral-600">Try adjusting your search or filters</p>
           </div>
         ) : (
           filteredTemplates.map((template) => (
-            <div key={template.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+            <div key={template.id} className="card-hover overflow-hidden">
               <div className="p-6">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-2">
-                    {getCategoryIcon(template.category)}
-                    <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <div className="w-6 h-6 text-primary-500">
+                      {getCategoryIcon(template.category)}
+                    </div>
+                    <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
                       {template.category}
                     </span>
                   </div>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getDifficultyColor(template.difficulty)}`}>
+                  <span className={`badge ${getDifficultyColor(template.difficulty)}`}>
                     {template.difficulty}
                   </span>
                 </div>
 
                 {/* Title and Description */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{template.name}</h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{template.description}</p>
+                <h3 className="text-lg font-display font-semibold text-neutral-900 mb-3">{template.name}</h3>
+                <p className="text-neutral-600 text-sm mb-4 leading-relaxed">{template.description}</p>
 
                 {/* Stack */}
-                <div className="flex items-center space-x-2 mb-4 text-sm text-gray-500">
+                <div className="flex items-center space-x-2 mb-4 text-sm text-neutral-500">
                   <Database className="w-4 h-4" />
                   <span>{template.stack}</span>
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {template.tags.map((tag, index) => (
-                    <span key={index} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs">
+                    <span key={index} className="badge-neutral">
                       {tag}
                     </span>
                   ))}
                 </div>
 
                 {/* Stats */}
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <div className="flex items-center justify-between text-sm text-neutral-500 mb-6">
                   <div className="flex items-center space-x-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                     <span>{template.rating}</span>
@@ -197,12 +201,12 @@ export default function TemplatesPage() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex gap-2">
-                  <button className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors duration-200 text-sm font-medium">
+                <div className="flex gap-3">
+                  <button className="flex-1 btn-secondary btn-sm">
                     <Eye className="w-4 h-4" />
                     <span>Preview</span>
                   </button>
-                  <button className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-200 text-sm font-medium">
+                  <button className="flex-1 btn-primary btn-sm">
                     <Download className="w-4 h-4" />
                     <span>Use Template</span>
                   </button>

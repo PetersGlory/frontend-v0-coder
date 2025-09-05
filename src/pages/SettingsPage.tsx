@@ -88,42 +88,42 @@ export default function SettingsPage() {
 
   const renderProfileTab = () => (
     <div className="space-y-6">
-      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Personal Information</h3>
-        <div className="grid md:grid-cols-2 gap-4">
+      <div className="card">
+        <h3 className="text-lg font-display font-semibold text-neutral-900 mb-6">Personal Information</h3>
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">Full Name</label>
             <input
               type="text"
               value={tempSettings.name}
               onChange={(e) => updateTempSettings('name', e.target.value)}
               disabled={!isEditing}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
+              className="input disabled:bg-neutral-50 disabled:text-neutral-500"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">Email</label>
             <input
               type="email"
               value={tempSettings.email}
               onChange={(e) => updateTempSettings('email', e.target.value)}
               disabled={!isEditing}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
+              className="input disabled:bg-neutral-50 disabled:text-neutral-500"
             />
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Settings</h3>
-        <div className="grid md:grid-cols-2 gap-4">
+      <div className="card">
+        <h3 className="text-lg font-display font-semibold text-neutral-900 mb-6">Account Settings</h3>
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Language</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">Language</label>
             <select
               value={tempSettings.language}
               onChange={(e) => updateTempSettings('language', e.target.value)}
               disabled={!isEditing}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-50"
+              className="select disabled:bg-neutral-50"
             >
               {languages.map(lang => (
                 <option key={lang.code} value={lang.code}>{lang.name}</option>
@@ -131,12 +131,12 @@ export default function SettingsPage() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Theme</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">Theme</label>
             <select
               value={tempSettings.theme}
               onChange={(e) => updateTempSettings('theme', e.target.value)}
               disabled={!isEditing}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-50"
+              className="select disabled:bg-neutral-50"
             >
               {themes.map(theme => (
                 <option key={theme.value} value={theme.value}>{theme.label}</option>
@@ -149,13 +149,13 @@ export default function SettingsPage() {
   )
 
   const renderNotificationsTab = () => (
-    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Notification Preferences</h3>
-      <div className="space-y-4">
+    <div className="card">
+      <h3 className="text-lg font-display font-semibold text-neutral-900 mb-6">Notification Preferences</h3>
+      <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="font-medium text-gray-900">Email Notifications</h4>
-            <p className="text-sm text-gray-600">Receive updates and important information via email</p>
+            <h4 className="font-medium text-neutral-900">Email Notifications</h4>
+            <p className="text-sm text-neutral-600">Receive updates and important information via email</p>
           </div>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
@@ -165,14 +165,14 @@ export default function SettingsPage() {
               disabled={!isEditing}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600 disabled:opacity-50"></div>
+            <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600 disabled:opacity-50"></div>
           </label>
         </div>
 
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="font-medium text-gray-900">Push Notifications</h4>
-            <p className="text-sm text-gray-600">Receive real-time notifications in your browser</p>
+            <h4 className="font-medium text-neutral-900">Push Notifications</h4>
+            <p className="text-sm text-neutral-600">Receive real-time notifications in your browser</p>
           </div>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
@@ -182,14 +182,14 @@ export default function SettingsPage() {
               disabled={!isEditing}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600 disabled:opacity-50"></div>
+            <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600 disabled:opacity-50"></div>
           </label>
         </div>
 
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="font-medium text-gray-900">Product Updates</h4>
-            <p className="text-sm text-gray-600">Get notified about new features and improvements</p>
+            <h4 className="font-medium text-neutral-900">Product Updates</h4>
+            <p className="text-sm text-neutral-600">Get notified about new features and improvements</p>
           </div>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
@@ -199,7 +199,7 @@ export default function SettingsPage() {
               disabled={!isEditing}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600 disabled:opacity-50"></div>
+            <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600 disabled:opacity-50"></div>
           </label>
         </div>
       </div>
@@ -208,13 +208,13 @@ export default function SettingsPage() {
 
   const renderSecurityTab = () => (
     <div className="space-y-6">
-      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Security Settings</h3>
-        <div className="space-y-4">
+      <div className="card">
+        <h3 className="text-lg font-display font-semibold text-neutral-900 mb-6">Security Settings</h3>
+        <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-medium text-gray-900">Two-Factor Authentication</h4>
-              <p className="text-sm text-gray-600">Add an extra layer of security to your account</p>
+              <h4 className="font-medium text-neutral-900">Two-Factor Authentication</h4>
+              <p className="text-sm text-neutral-600">Add an extra layer of security to your account</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -224,12 +224,12 @@ export default function SettingsPage() {
                 disabled={!isEditing}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600 disabled:opacity-50"></div>
+              <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600 disabled:opacity-50"></div>
             </label>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Session Timeout (minutes)</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">Session Timeout (minutes)</label>
             <input
               type="number"
               value={tempSettings.security.sessionTimeout}
@@ -237,19 +237,19 @@ export default function SettingsPage() {
               disabled={!isEditing}
               min="5"
               max="480"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
+              className="input disabled:bg-neutral-50 disabled:text-neutral-500"
             />
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Danger Zone</h3>
+      <div className="card border-red-200 bg-red-50/50">
+        <h3 className="text-lg font-display font-semibold text-neutral-900 mb-6">Danger Zone</h3>
         <div className="space-y-4">
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div className="p-6 bg-red-50 border border-red-200 rounded-xl">
             <h4 className="font-medium text-red-800 mb-2">Delete Account</h4>
-            <p className="text-sm text-red-700 mb-3">This action cannot be undone. All your data will be permanently deleted.</p>
-            <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm font-medium">
+            <p className="text-sm text-red-700 mb-4">This action cannot be undone. All your data will be permanently deleted.</p>
+            <button className="btn-sm bg-red-600 hover:bg-red-700 text-white">
               Delete Account
             </button>
           </div>
@@ -268,10 +268,12 @@ export default function SettingsPage() {
         return renderSecurityTab()
       default:
         return (
-          <div className="bg-white rounded-2xl p-12 border border-gray-200 shadow-sm text-center">
-            <Settings className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Coming Soon</h3>
-            <p className="text-gray-600">This section is under development</p>
+          <div className="card text-center">
+            <div className="w-20 h-20 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
+              <Settings className="w-10 h-10 text-neutral-400" />
+            </div>
+            <h3 className="text-xl font-display font-semibold text-neutral-900 mb-2">Coming Soon</h3>
+            <p className="text-neutral-600">This section is under development</p>
           </div>
         )
     }
@@ -283,9 +285,9 @@ export default function SettingsPage() {
       subtitle="Manage your account preferences and settings"
     >
       {/* Settings Container */}
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="card overflow-hidden">
         {/* Tabs */}
-        <div className="border-b border-gray-200">
+        <div className="border-b border-neutral-200/50">
           <div className="flex space-x-8 px-6">
             {tabs.map((tab) => {
               const Icon = tab.icon
@@ -295,8 +297,8 @@ export default function SettingsPage() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center space-x-2 py-4 px-2 border-b-2 font-medium text-sm transition-colors duration-200 ${
                     activeTab === tab.id
-                      ? 'border-purple-500 text-purple-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                      ? 'border-primary-500 text-primary-600'
+                      : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -312,11 +314,11 @@ export default function SettingsPage() {
           {renderTabContent()}
 
           {/* Action Buttons */}
-          <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-gray-200">
+          <div className="flex justify-end space-x-3 mt-8 pt-6 border-t border-neutral-200/50">
             {!isEditing ? (
               <button
                 onClick={() => setIsEditing(true)}
-                className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium"
+                className="btn-primary"
               >
                 Edit Settings
               </button>
@@ -324,14 +326,14 @@ export default function SettingsPage() {
               <>
                 <button
                   onClick={handleCancel}
-                  className="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200 font-medium flex items-center space-x-2"
+                  className="btn-secondary"
                 >
                   <X className="w-4 h-4" />
                   <span>Cancel</span>
                 </button>
                 <button
                   onClick={handleSave}
-                  className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium flex items-center space-x-2"
+                  className="btn-primary"
                 >
                   <Save className="w-4 h-4" />
                   <span>Save Changes</span>

@@ -31,32 +31,32 @@ export default function GeneratorPage() {
       title="Welcome back to Backend V0"
       subtitle="Ready to generate your next backend?"
     >
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* Prompt Input */}
-        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+        <div className="card">
           <PromptInput />
         </div>
 
         {/* Loading State */}
         {isLoading && (
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
-              </div>
-              <p className="text-gray-600 text-lg font-medium">AI is generating your backend specification...</p>
-              <p className="text-gray-500 text-sm mt-2">This usually takes 10-30 seconds</p>
+          <div className="card text-center">
+            <div className="w-20 h-20 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-glow">
+              <Loader2 className="w-10 h-10 animate-spin text-primary-600" />
             </div>
+            <h3 className="text-xl font-display font-semibold text-neutral-900 mb-2">AI is generating your backend specification...</h3>
+            <p className="text-neutral-600">This usually takes 10-30 seconds</p>
           </div>
         )}
 
         {/* Error Display */}
         {error && (
-          <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
-            <div className="flex items-center space-x-3">
-              <AlertCircle className="w-6 h-6 text-red-500" />
+          <div className="card border-red-200 bg-red-50/50">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-6 h-6 text-red-500" />
+              </div>
               <div>
-                <h3 className="font-medium text-red-800 text-lg">Generation Failed</h3>
+                <h3 className="font-display font-semibold text-red-800 text-lg">Generation Failed</h3>
                 <p className="text-red-700">{error}</p>
               </div>
             </div>
@@ -65,18 +65,18 @@ export default function GeneratorPage() {
 
         {/* Generated Specification */}
         {spec && (
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="space-y-8">
+            <div className="card overflow-hidden">
               <SpecDisplay spec={spec} />
             </div>
             
             {/* Scaffold Actions */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="card text-center">
+              <div className="mb-8">
+                <h3 className="text-2xl font-display font-bold text-neutral-900 mb-3">
                   Ready to Scaffold?
                 </h3>
-                <p className="text-gray-600 text-lg">
+                <p className="text-neutral-600 text-lg">
                   Generate the complete project files and start building your backend.
                 </p>
               </div>
@@ -87,14 +87,20 @@ export default function GeneratorPage() {
                     ? 'bg-green-50 border border-green-200' 
                     : 'bg-red-50 border border-red-200'
                 }`}>
-                  <div className="flex items-center space-x-3">
-                    {scaffoldResult.success ? (
-                      <CheckCircle className="w-6 h-6 text-green-500" />
-                    ) : (
-                      <AlertCircle className="w-6 h-6 text-red-500" />
-                    )}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      {scaffoldResult.success ? (
+                        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                          <CheckCircle className="w-6 h-6 text-green-500" />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                          <AlertCircle className="w-6 h-6 text-red-500" />
+                        </div>
+                      )}
+                    </div>
                     <div>
-                      <p className={`font-medium text-lg ${
+                      <p className={`font-display font-semibold text-lg ${
                         scaffoldResult.success ? 'text-green-800' : 'text-red-800'
                       }`}>
                         {scaffoldResult.message}
@@ -124,14 +130,14 @@ export default function GeneratorPage() {
 
         {/* Welcome Message */}
         {!spec && !isLoading && !error && (
-          <div className="bg-white rounded-2xl p-12 border border-gray-200 shadow-sm text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <Sparkles className="w-10 h-10 text-purple-600" />
+          <div className="card text-center">
+            <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-glow">
+              <Sparkles className="w-12 h-12 text-primary-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+            <h3 className="text-2xl font-display font-bold text-neutral-900 mb-4">
               Start Building Your Backend
             </h3>
-            <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg leading-relaxed">
+            <p className="text-neutral-600 mb-8 max-w-lg mx-auto text-lg leading-relaxed">
               Describe your backend requirements in natural language and let AI generate a complete specification with all the code you need.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -145,7 +151,7 @@ export default function GeneratorPage() {
                       textarea.dispatchEvent(new Event('input', { bubbles: true }))
                     }
                   }}
-                  className="px-6 py-3 bg-purple-50 hover:bg-purple-100 text-purple-700 hover:text-purple-800 rounded-xl text-sm font-medium transition-all duration-200 border border-purple-200 hover:border-purple-300 hover:shadow-md"
+                  className="btn-secondary btn-sm"
                 >
                   {prompt.split(' ').slice(0, 4).join(' ')}...
                 </button>
