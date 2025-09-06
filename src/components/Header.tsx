@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Code, Zap, Sparkles, History, BookOpen, Settings, Menu, X } from 'lucide-react'
+import { Code, Zap,  History, BookOpen, Settings, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Header() {
