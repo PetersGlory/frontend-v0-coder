@@ -21,8 +21,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-glow group-hover:shadow-glow-lg">
-              <Sparkles className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+              <img src="/assets/img/logo.png" alt="EaseArch Logo" className="w-12 h-12" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-display font-bold text-gradient">
