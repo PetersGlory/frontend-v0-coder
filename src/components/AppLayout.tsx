@@ -32,7 +32,7 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
       <div className="w-72 bg-white/80 backdrop-blur-sm border-r border-neutral-200/50 flex flex-col shadow-soft">
         {/* Header Section */}
         <div className="p-6 border-b border-neutral-200/50 bg-gradient-to-br from-primary-50/50 to-secondary-50/50">
-          <div className="flex items-center space-x-3 mb-3">
+          <Link to={"/"} className="flex items-center space-x-3 mb-3">
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-glow">
               <img src="/assets/img/logo.png" alt="EaseArch Logo" className="w-12 h-12 object-contain" />
             </div>
@@ -40,7 +40,7 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
               <h2 className="text-lg font-display font-bold text-gradient">EaseArch</h2>
               <p className="text-xs text-neutral-600">Easy Architecture, Powerful Results</p>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Navigation */}
