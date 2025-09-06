@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Clock, History, BookOpen, Code, Settings, Zap, MessageSquare, User, ChevronRight } from 'lucide-react'
+import { Clock, History, BookOpen, Code, Settings, Zap, MessageSquare, User, ChevronRight, X, Menu } from 'lucide-react'
 
 interface AppLayoutProps {
   children: ReactNode
@@ -10,6 +10,7 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   const location = useLocation()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const examplePrompts = [
     "Build a REST API for a task management app with user authentication, projects, and tasks. Use Express, Prisma, and PostgreSQL.",
@@ -27,93 +28,130 @@ export default function AppLayout({ children }: AppLayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30 flex">
-      {/* Left Sidebar - Controls & Navigation */}
-      <div className="w-72 bg-white/80 backdrop-blur-sm border-r border-neutral-200/50 flex flex-col shadow-soft">
-        {/* Header Section */}
-        <div className="p-6 border-b border-neutral-200/50 bg-gradient-to-br from-primary-50/50 to-secondary-50/50">
-          <Link to={"/"} className="flex items-center space-x-3 mb-3">
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-glow">
-              <img src="/assets/img/logo.png" alt="EaseArch Logo" className="w-12 h-12 object-contain" />
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30">
+      {/* Mobile Header */}
+      <div className="lg:hidden bg-white/80 backdrop-blur-sm border-b border-neutral-200/50 shadow-soft">
+        <div className="flex items-center justify-between p-4">
+          <Link to={"/"} className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-glow">
+              <img src="/assets/img/logo.png" alt="EaseArch Logo" className="w-10 h-10 object-contain" />
             </div>
             <div>
               <h2 className="text-lg font-display font-bold text-gradient">EaseArch</h2>
               <p className="text-xs text-neutral-600">Easy Architecture, Powerful Results</p>
             </div>
           </Link>
-        </div>
-
-        {/* Navigation */}
-        <div className="p-4 border-b border-neutral-200/50">
-          <div className="space-y-1">
-            {navItems.map((item) => {
-              const Icon = item.icon
-              const isActive = location.pathname === item.path
-              
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
-                    isActive
-                      ? 'bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 border border-primary-200 shadow-soft'
-                      : 'text-neutral-600 hover:text-primary-700 hover:bg-primary-50/50'
-                  }`}
-                >
-                  <Icon className="w-5 h-5" />
-                  <span>{item.label}</span>
-                  {isActive && <ChevronRight className="w-4 h-4 ml-auto" />}
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* Example Prompts Section */}
-        <div className="flex-1 p-4 overflow-y-auto">
-          <h3 className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-4 flex items-center space-x-2">
-            <Zap className="w-4 h-4" />
-            <span>Quick Examples</span>
-          </h3>
-          <div className="space-y-3">
-            {examplePrompts.map((prompt, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  window.location.href = `/generate?prompt=${encodeURIComponent(prompt)}`
-                }}
-                className="w-full text-left p-4 text-sm text-neutral-700 hover:text-neutral-900 hover:bg-gradient-to-r hover:from-primary-50 hover:to-secondary-50 rounded-xl border border-neutral-200 hover:border-primary-300 transition-all duration-200 bg-white/50 hover:shadow-soft group"
-              >
-                <div className="flex items-start space-x-3">
-                  <Clock className="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                  <span className="line-clamp-3 leading-relaxed">{prompt}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* User Profile */}
-        <div className="p-4 border-t border-neutral-200/50 bg-gradient-to-r from-neutral-50/50 to-primary-50/30">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-soft">
-              <User className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-neutral-900">Developer</p>
-              <p className="text-xs text-neutral-500">Ready to build</p>
-            </div>
-          </div>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 transition-colors duration-200"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="flex-1 bg-white/60 backdrop-blur-sm flex flex-col">
+      <div className="flex">
+        {/* Mobile Overlay */}
+        {isMobileMenuOpen && (
+          <div 
+            className="lg:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
 
-        {/* Page Content */}
-        <div className="flex-1 p-8 overflow-y-auto">
-          <div className="max-w-5xl mx-auto">
-            {children}
+        {/* Left Sidebar - Controls & Navigation */}
+        <div className={`
+          fixed lg:static inset-y-0 left-0 z-50 lg:z-auto
+          w-72 bg-white/80 backdrop-blur-sm border-r border-neutral-200/50 flex flex-col shadow-soft
+          transform transition-transform duration-300 ease-in-out
+          ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        `}>
+          {/* Header Section */}
+          <div className="p-4 lg:p-6 border-b border-neutral-200/50 bg-gradient-to-br from-primary-50/50 to-secondary-50/50">
+            <Link to={"/"} className="flex items-center space-x-3 mb-3" onClick={() => setIsMobileMenuOpen(false)}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-glow">
+                <img src="/assets/img/logo.png" alt="EaseArch Logo" className="w-10 h-10 lg:w-12 lg:h-12 object-contain" />
+              </div>
+              <div>
+                <h2 className="text-base lg:text-lg font-display font-bold text-gradient">EaseArch</h2>
+                <p className="text-xs text-neutral-600">Easy Architecture, Powerful Results</p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation */}
+          <div className="p-3 lg:p-4 border-b border-neutral-200/50">
+            <div className="space-y-1">
+              {navItems.map((item) => {
+                const Icon = item.icon
+                const isActive = location.pathname === item.path
+                
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-3 lg:px-4 py-2.5 lg:py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
+                      isActive
+                        ? 'bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700 border border-primary-200 shadow-soft'
+                        : 'text-neutral-600 hover:text-primary-700 hover:bg-primary-50/50'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <span>{item.label}</span>
+                    {isActive && <ChevronRight className="w-3 h-3 lg:w-4 lg:h-4 ml-auto" />}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Example Prompts Section */}
+          <div className="flex-1 p-3 lg:p-4 overflow-y-auto">
+            <h3 className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3 lg:mb-4 flex items-center space-x-2">
+              <Zap className="w-3 h-3 lg:w-4 lg:h-4" />
+              <span>Quick Examples</span>
+            </h3>
+            <div className="space-y-2 lg:space-y-3">
+              {examplePrompts.map((prompt, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    window.location.href = `/generate?prompt=${encodeURIComponent(prompt)}`
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="w-full text-left p-3 lg:p-4 text-xs lg:text-sm text-neutral-700 hover:text-neutral-900 hover:bg-gradient-to-r hover:from-primary-50 hover:to-secondary-50 rounded-xl border border-neutral-200 hover:border-primary-300 transition-all duration-200 bg-white/50 hover:shadow-soft group"
+                >
+                  <div className="flex items-start space-x-2 lg:space-x-3">
+                    <Clock className="w-3 h-3 lg:w-4 lg:h-4 text-primary-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                    <span className="line-clamp-2 lg:line-clamp-3 leading-relaxed">{prompt}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* User Profile */}
+          <div className="p-3 lg:p-4 border-t border-neutral-200/50 bg-gradient-to-r from-neutral-50/50 to-primary-50/30">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg lg:rounded-xl flex items-center justify-center shadow-soft">
+                <User className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              </div>
+              <div>
+                <p className="text-xs lg:text-sm font-medium text-neutral-900">Developer</p>
+                <p className="text-xs text-neutral-500">Ready to build</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Area */}
+        <div className="flex-1 bg-white/60 backdrop-blur-sm flex flex-col min-h-screen lg:min-h-0">
+          {/* Page Content */}
+          <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+            <div className="max-w-5xl mx-auto w-full">
+              {children}
+            </div>
           </div>
         </div>
       </div>
