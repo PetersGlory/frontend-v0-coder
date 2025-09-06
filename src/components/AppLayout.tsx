@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Sparkles, Clock, History, BookOpen, Code, Settings, Zap, MessageSquare, User, ChevronRight } from 'lucide-react'
+import { Clock, History, BookOpen, Code, Settings, Zap, MessageSquare, User, ChevronRight } from 'lucide-react'
 
 interface AppLayoutProps {
   children: ReactNode
@@ -8,7 +8,7 @@ interface AppLayoutProps {
   subtitle: string
 }
 
-export default function AppLayout({ children, title, subtitle }: AppLayoutProps) {
+export default function AppLayout({ children }: AppLayoutProps) {
   const location = useLocation()
 
   const examplePrompts = [
@@ -109,26 +109,6 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
 
       {/* Main Content Area */}
       <div className="flex-1 bg-white/60 backdrop-blur-sm flex flex-col">
-        {/* Top Header */}
-        <div className="p-8 border-b border-neutral-200/50 bg-white/80 backdrop-blur-md shadow-soft">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center shadow-glow">
-                <span className="text-white text-xl font-bold">U</span>
-              </div>
-              <div>
-                <h1 className="text-2xl font-display font-bold text-neutral-900">{title}</h1>
-                <p className="text-neutral-600">{subtitle}</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <button className="btn-secondary btn-sm">
-                <Sparkles className="w-4 h-4 mr-2" />
-                AI Model
-              </button>
-            </div>
-          </div>
-        </div>
 
         {/* Page Content */}
         <div className="flex-1 p-8 overflow-y-auto">
