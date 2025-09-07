@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Check, Star, CreditCard, X } from 'lucide-react'
+import { Check, Star, CreditCard } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 import { getBillingPlans, subscribeToPlan, getMySubscription, cancelMySubscription, BillingPlan, SubscriptionInfo } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
