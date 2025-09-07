@@ -8,9 +8,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl flex items-center justify-center shadow-glow">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
+              <img
+                src="/assets/img/logo.png"
+                alt="EaseArch Logo"
+                className="w-10 h-10 rounded-xl shadow-glow bg-white object-contain"
+              />
               <div>
                 <h3 className="text-lg font-display font-bold text-gradient">EaseArch</h3>
                 <p className="text-sm text-neutral-600">Easy Architecture, Powerful Results</p>

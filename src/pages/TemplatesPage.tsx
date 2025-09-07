@@ -161,7 +161,7 @@ export default function TemplatesPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-2">
                     <div className="w-6 h-6 text-primary-500">
-                      {getCategoryIcon(template.category)}
+                    {getCategoryIcon(template.category)}
                     </div>
                     <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
                       {template.category}

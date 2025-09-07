@@ -80,10 +80,10 @@ export default function GeneratorPage() {
                 </button>
               ))}
             </div>
-            {/* Prompt Input */}
+        {/* Prompt Input */}
             <div className="py-6">
-              <PromptInput />
-            </div>
+          <PromptInput />
+        </div>
           </div>
         </div>
       )}
@@ -270,16 +270,16 @@ export default function GeneratorPage() {
                     )}
                   </div>
                   <h3 className={`text-2xl font-display font-bold mb-4 animate-slide-up ${
-                    scaffoldResult.success ? 'text-green-800' : 'text-red-800'
+                        scaffoldResult.success ? 'text-green-800' : 'text-red-800'
                   }`}>
                     {scaffoldResult.success ? 'Project Generated Successfully!' : 'Scaffolding Failed'}
                   </h3>
                   <p className={`text-lg mb-6 animate-fade-in animate-delay-200 ${
                     scaffoldResult.success ? 'text-green-700' : 'text-red-700'
-                  }`}>
-                    {scaffoldResult.message}
-                  </p>
-                  {scaffoldResult.localPath && (
+                      }`}>
+                        {scaffoldResult.message}
+                      </p>
+                      {scaffoldResult.localPath && (
                     <div className="bg-green-100 border border-green-200 rounded-lg p-4 mb-6 animate-fade-in animate-delay-400">
                       <p className="text-green-800 font-mono text-sm">
                         📁 {scaffoldResult.localPath}
@@ -311,8 +311,8 @@ export default function GeneratorPage() {
           </div>
         )}
 
-        </div>
-      </AppLayout>
+      </div>
+    </AppLayout>
     </div>
   )
 }

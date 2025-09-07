@@ -60,18 +60,18 @@ export default function PromptInput() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="relative">
-            <textarea
-              id="prompt"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Describe your backend requirements in natural language... For example: 'Build a REST API for a task management app with user authentication, projects, and tasks. Use Express, Prisma, and PostgreSQL.'"
+        <div className="relative">
+          <textarea
+            id="prompt"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="Describe your backend requirements in natural language... For example: 'Build a REST API for a task management app with user authentication, projects, and tasks. Use Express, Prisma, and PostgreSQL.'"
               className={`w-full px-6 py-6 min-h-[200px] resize-none textarea text-base leading-relaxed transition-all duration-300 ${
                 isOverLimit ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 
                 isNearLimit ? 'border-yellow-300 focus:ring-yellow-500 focus:border-yellow-500' : 
                 'border-neutral-300 focus:ring-primary-500 focus:border-primary-500'
               }`}
-              disabled={isSubmitting}
+            disabled={isSubmitting}
               maxLength={maxLength}
             />
             
@@ -87,29 +87,29 @@ export default function PromptInput() {
               {isOverLimit && (
                 <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
               )}
-            </div>
+          </div>
 
-            {/* Submit button */}
-            <button
-              type="submit"
+          {/* Submit button */}
+          <button
+            type="submit"
               disabled={!prompt.trim() || isSubmitting || isOverLimit}
               className={`absolute bottom-4 right-4 btn-primary btn-lg group transition-all duration-300 ${
                 !prompt.trim() || isOverLimit ? 'opacity-50 cursor-not-allowed' : 
                 'hover:scale-105 active:scale-95'
               }`}
-            >
-              {isSubmitting ? (
+          >
+            {isSubmitting ? (
                 <div className="flex items-center space-x-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   <span className="text-sm">Generating...</span>
                 </div>
-              ) : (
+            ) : (
                 <div className="flex items-center space-x-2">
                   <span className="text-sm font-medium">Generate Backend</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
-              )}
-            </button>
+            )}
+          </button>
           </div>
         </div>
       </form>

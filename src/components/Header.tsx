@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Code, Zap,  History, BookOpen, Settings, Menu, X } from 'lucide-react'
+import { Code, Zap,  History, BookOpen, Settings, Menu, X, LogOut, User as UserIcon } from 'lucide-react'
 import { useState } from 'react'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Header() {
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { isAuthenticated, user, logout } = useAuth()
 
   const navItems = [
     { path: '/', label: 'Home', icon: Code },
@@ -12,6 +14,7 @@ export default function Header() {
     { path: '/history', label: 'History', icon: History },
     { path: '/templates', label: 'Templates', icon: BookOpen },
     { path: '/docs', label: 'Docs', icon: BookOpen },
+    { path: '/pricing', label: 'Pricing', icon: Settings },
     { path: '/settings', label: 'Settings', icon: Settings },
   ]
 
@@ -49,6 +52,17 @@ export default function Header() {
                 </Link>
               )
             })}
+            {!isAuthenticated ? (
+              <Link to="/login" className="nav-link-inactive">
+                <UserIcon className="w-4 h-4" />
+                <span>Login</span>
+              </Link>
+            ) : (
+              <button onClick={logout} className="nav-link-inactive">
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
+              </button>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -88,6 +102,24 @@ export default function Header() {
                   </Link>
                 )
               })}
+              {!isAuthenticated ? (
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
+                >
+                  <UserIcon className="w-5 h-5" />
+                  <span>Login</span>
+                </Link>
+              ) : (
+                <button
+                  onClick={() => { logout(); setIsMobileMenuOpen(false) }}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 text-left"
+                >
+                  <LogOut className="w-5 h-5" />
+                  <span>Logout{user?.username ? ` (${user.username})` : ''}</span>
+                </button>
+              )}
             </nav>
           </div>
         )}

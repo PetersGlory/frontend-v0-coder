@@ -241,7 +241,7 @@ export default function HomePage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up">
               {stats.map((stat, index) => (
                 <div key={index} className="card-hover text-center p-6">
@@ -299,8 +299,8 @@ export default function HomePage() {
             <div className="card-glass bg-white/80 backdrop-blur-sm border border-neutral-200/50 p-8 shadow-soft">
               {features.map((feature) => {
                 if (activeTab !== feature.id) return null
-                const Icon = feature.icon
-                return (
+              const Icon = feature.icon
+              return (
                   <div key={feature.id} className="animate-fade-in">
                     <div className="flex items-center space-x-4 mb-6">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-glow">
@@ -347,11 +347,11 @@ export default function HomePage() {
                       <div className="card-hover p-6">
                         <h4 className="text-lg font-semibold text-neutral-800 mb-2">Decision Making</h4>
                         <p className="text-neutral-600 text-sm">Make informed decisions with AI-powered insights and suggestions.</p>
-                      </div>
                     </div>
                   </div>
-                )
-              })}
+                </div>
+              )
+            })}
             </div>
           </div>
         </div>
@@ -428,12 +428,12 @@ export default function HomePage() {
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">U</span>
-                  </div>
+              </div>
                   <div className="bg-neutral-100 rounded-lg p-3 max-w-xs">
                     <p className="text-sm text-neutral-700">Please have a question about the code?</p>
-                  </div>
-                </div>
+            </div>
               </div>
+            </div>
 
               {/* Chat Input */}
               <div className="flex space-x-3">

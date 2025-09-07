@@ -7,6 +7,10 @@ import HistoryPage from './pages/HistoryPage'
 import TemplatesPage from './pages/TemplatesPage'
 import DocumentationPage from './pages/DocumentationPage'
 import SettingsPage from './pages/SettingsPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import PricingPage from './pages/PricingPage'
+import RequireAuth from './components/RequireAuth'
 import { BackendSpecProvider } from './contexts/BackendSpecContext'
 
 function App() {
@@ -20,11 +24,14 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/generate" element={<GeneratorPage />} />
-            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/generate" element={<RequireAuth><GeneratorPage /></RequireAuth>} />
+            <Route path="/history" element={<RequireAuth><HistoryPage /></RequireAuth>} />
             <Route path="/templates" element={<TemplatesPage />} />
             <Route path="/docs" element={<DocumentationPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/settings" element={<RequireAuth><SettingsPage /></RequireAuth>} />
           </Routes>
         </main>
         {isHomePage && <Footer />}
