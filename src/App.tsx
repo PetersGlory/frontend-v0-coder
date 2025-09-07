@@ -15,7 +15,7 @@ import { BackendSpecProvider } from './contexts/BackendSpecContext'
 
 function App() {
   const location = useLocation()
-  const isHomePage = location.pathname === '/'
+  const isHomePage = location.pathname === '/' || location.pathname === "/pricing" || location.pathname === '/login' || location.pathname === "/register"
 
   return (
     <BackendSpecProvider>
