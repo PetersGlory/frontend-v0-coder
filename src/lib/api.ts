@@ -1,4 +1,4 @@
-const BASE_URL = "https://v0-coder.onrender.com/";
+const BASE_URL = "https://v0-coder.onrender.com";
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
