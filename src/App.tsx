@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import PricingPage from './pages/PricingPage'
 import RequireAuth from './components/RequireAuth'
+import ErrorBoundary from './components/ErrorBoundary'
 import { BackendSpecProvider } from './contexts/BackendSpecContext'
 
 function App() {
@@ -18,25 +19,27 @@ function App() {
   const isHomePage = location.pathname === '/' || location.pathname === "/pricing" || location.pathname === '/login' || location.pathname === "/register"
 
   return (
-    <BackendSpecProvider>
-      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30 flex flex-col">
-        {isHomePage && <Header />}
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/generate" element={<RequireAuth><GeneratorPage /></RequireAuth>} />
-            <Route path="/history" element={<RequireAuth><HistoryPage /></RequireAuth>} />
-            <Route path="/templates" element={<TemplatesPage />} />
-            <Route path="/docs" element={<DocumentationPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/settings" element={<RequireAuth><SettingsPage /></RequireAuth>} />
-          </Routes>
-        </main>
-        {isHomePage && <Footer />}
-      </div>
-    </BackendSpecProvider>
+    <ErrorBoundary>
+      <BackendSpecProvider>
+        <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50/30 flex flex-col">
+          {isHomePage && <Header />}
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/generate" element={<RequireAuth><GeneratorPage /></RequireAuth>} />
+              <Route path="/history" element={<RequireAuth><HistoryPage /></RequireAuth>} />
+              <Route path="/templates" element={<TemplatesPage />} />
+              <Route path="/docs" element={<DocumentationPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/settings" element={<RequireAuth><SettingsPage /></RequireAuth>} />
+            </Routes>
+          </main>
+          {isHomePage && <Footer />}
+        </div>
+      </BackendSpecProvider>
+    </ErrorBoundary>
   )
 }
 

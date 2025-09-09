@@ -85,11 +85,11 @@ export default function HomePage() {
         <div className="container relative">
           <div className="text-center">
             {/* Main Heading with Plus Icons */}
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-neutral-900 mb-6 leading-tight animate-slide-up">
-              <span className="flex items-center justify-center gap-4">
-                <Plus className="w-8 h-8 text-primary-500 animate-pulse" />
-                AI-Powered Code Generation Made Simple!
-                <Plus className="w-8 h-8 text-secondary-500 animate-pulse" />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-neutral-900 mb-6 leading-tight animate-slide-up">
+              <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                <Plus className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500 animate-pulse" />
+                <span className="text-center">AI-Powered Code Generation Made Simple!</span>
+                <Plus className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-500 animate-pulse" />
               </span>
             </h1>
 

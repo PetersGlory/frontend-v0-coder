@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Clock, Search, Download, Eye, Trash2, Calendar, Database } from 'lucide-react'
+import { Clock, Search, Download, Eye, Trash2, Calendar, Database, Heart } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 import { getHistory, type HistoryItem as ApiHistoryItem } from '../lib/api'
+import { HistorySkeleton } from '../components/LoadingSkeleton'
 
 interface HistoryItem {
   id: number
@@ -10,6 +11,8 @@ interface HistoryItem {
   stack: string
   createdAt: string
   status: 'completed' | 'failed' | 'in-progress'
+  is_favorite?: boolean
+  download_count?: number
 }
 
 export default function HistoryPage() {
@@ -139,12 +142,7 @@ export default function HistoryPage() {
       {/* History List */}
       <div className="space-y-6">
         {loading ? (
-          <div className="card text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
-              <Clock className="w-10 h-10 text-neutral-400 animate-pulse" />
-            </div>
-            <p className="text-neutral-600">Loading history...</p>
-          </div>
+          <HistorySkeleton />
         ) : error ? (
           <div className="card text-center">
             <h3 className="text-xl font-display font-semibold text-red-700 mb-2">{error}</h3>
@@ -182,13 +180,28 @@ export default function HistoryPage() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 ml-6">
-                  <button className="p-3 text-neutral-400 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200">
+                  <button 
+                    className={`p-3 rounded-xl transition-all duration-200 ${
+                      item.is_favorite 
+                        ? 'text-red-500 hover:text-red-600 hover:bg-red-50' 
+                        : 'text-neutral-400 hover:text-red-600 hover:bg-red-50'
+                    }`}
+                    title={item.is_favorite ? 'Remove from favorites' : 'Add to favorites'}
+                  >
+                    <Heart className={`w-5 h-5 ${item.is_favorite ? 'fill-current' : ''}`} />
+                  </button>
+                  <button className="p-3 text-neutral-400 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200" title="View details">
                     <Eye className="w-5 h-5" />
                   </button>
-                  <button className="p-3 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                  <button className="p-3 text-neutral-400 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200" title="Download project">
                     <Download className="w-5 h-5" />
+                    {item.download_count && item.download_count > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        {item.download_count}
+                      </span>
+                    )}
                   </button>
-                  <button className="p-3 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200">
+                  <button className="p-3 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-200" title="Delete project">
                     <Trash2 className="w-5 h-5" />
                   </button>
                 </div>

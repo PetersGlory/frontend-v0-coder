@@ -3,6 +3,7 @@ import { Check, Star, CreditCard } from 'lucide-react'
 import AppLayout from '../components/AppLayout'
 import { getBillingPlans, subscribeToPlan, getMySubscription, cancelMySubscription, BillingPlan, SubscriptionInfo } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
+import { PricingSkeleton } from '../components/LoadingSkeleton'
 
 export default function PricingPage() {
   const { isAuthenticated } = useAuth()
@@ -96,9 +97,7 @@ export default function PricingPage() {
       subtitle="Choose the perfect plan for your backend generation needs"
     >
       {loading ? (
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-pulse text-neutral-500">Loading pricing plans...</div>
-        </div>
+        <PricingSkeleton />
       ) : error ? (
         <div className="card text-center">
           <h3 className="text-xl font-display font-semibold text-red-700 mb-2">Error</h3>
