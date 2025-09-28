@@ -167,7 +167,7 @@ export default function SpecDisplay({ spec }: SpecDisplayProps) {
         </div>
       ))}
 
-      {/* Environment Variables */}
+      {/* Environment Variables
       {renderSection('env', 'Environment Variables', Settings, (
         <div className="grid md:grid-cols-2 gap-3">
           {spec.env.map((envVar) => (
@@ -176,7 +176,7 @@ export default function SpecDisplay({ spec }: SpecDisplayProps) {
             </div>
           ))}
         </div>
-      ))}
+      ))} */}
 
       {/* Extras */}
       {spec.extras && Object.keys(spec.extras).length > 0 && (
