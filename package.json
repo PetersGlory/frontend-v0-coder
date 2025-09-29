@@ -17,7 +17,10 @@
     "axios": "^1.6.0",
     "lucide-react": "^0.294.0",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "react-syntax-highlighter": "^15.5.0",
+    "@types/react-syntax-highlighter": "^15.5.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

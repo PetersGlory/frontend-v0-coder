@@ -110,7 +110,7 @@ export default function HomePage() {
                 />
               </div>
               <Link
-                to="/generate"
+                to="/chat"
                 className="btn-primary btn-lg group px-8"
               >
                 <span>Generate Code</span>

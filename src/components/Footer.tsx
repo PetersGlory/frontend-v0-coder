@@ -28,7 +28,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-neutral-900 mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="/generate" className="text-neutral-600 hover:text-primary-600 transition-colors duration-200">Generate</a></li>
+              <li><a href="/chat" className="text-neutral-600 hover:text-primary-600 transition-colors duration-200">AI Assistant</a></li>
               <li><a href="/templates" className="text-neutral-600 hover:text-primary-600 transition-colors duration-200">Templates</a></li>
               <li><a href="/docs" className="text-neutral-600 hover:text-primary-600 transition-colors duration-200">Documentation</a></li>
               <li><a href="/history" className="text-neutral-600 hover:text-primary-600 transition-colors duration-200">History</a></li>

@@ -18,7 +18,7 @@ export default function LoginPage() {
     setSubmitting(true)
     const res = await login(email, password)
     if (res.success) {
-      navigate('/generate')
+      navigate('/chat')
     } else {
       setError(res.error || 'Login failed')
     }

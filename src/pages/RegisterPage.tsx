@@ -21,7 +21,7 @@ export default function RegisterPage() {
     setSubmitting(true)
     const res = await register({ email, username, password, first_name: firstName, last_name: lastName })
     if (res.success) {
-      navigate('/generate')
+      navigate('/chat')
     } else {
       setError(res.error || 'Registration failed')
     }

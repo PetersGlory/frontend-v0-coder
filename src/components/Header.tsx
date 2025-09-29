@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Code, Zap,  History, BookOpen, Settings, Menu, X, LogOut, User as UserIcon } from 'lucide-react'
+import { Code, History, BookOpen, Settings, Menu, X, LogOut, User as UserIcon, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -10,7 +10,7 @@ export default function Header() {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Code },
-    { path: '/generate', label: 'Generate', icon: Zap },
+    { path: '/chat', label: 'AI Assistant', icon: MessageSquare },
     { path: '/history', label: 'History', icon: History },
     { path: '/templates', label: 'Templates', icon: BookOpen },
     { path: '/docs', label: 'Docs', icon: BookOpen },

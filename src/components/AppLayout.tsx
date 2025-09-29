@@ -15,7 +15,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const { isAuthenticated, user } = useAuth()
 
   const navItems = [
-    { path: '/generate', label: 'Generate', icon: MessageSquare },
+    { path: '/chat', label: 'AI Assistant', icon: MessageSquare },
     { path: '/history', label: 'History', icon: History },
     { path: '/templates', label: 'Templates', icon: BookOpen },
     { path: '/docs', label: 'Documentation', icon: Code },
